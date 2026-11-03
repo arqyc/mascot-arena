@@ -52,7 +52,34 @@ body.touch.fight #touch{display:flex}body.touch #ctrls{display:none!important}
 .kc .kcE{font-size:46px}.kc .kcT{flex:1;display:flex;flex-direction:column}.kc b{font-size:22px;text-shadow:0 2px 2px rgba(0,0,0,.25)}.kc small{font-size:13px;opacity:.95;margin-top:2px}.kc .kcGo{background:#222;border-radius:99px;padding:8px 14px;font-weight:900;font-size:15px;white-space:nowrap}
 .kc:hover{transform:translateY(-2px) scale(1.02)}@keyframes kcp{0%,100%{box-shadow:0 6px 0 #b8336b,0 0 18px rgba(255,120,60,.45)}50%{box-shadow:0 6px 0 #b8336b,0 0 40px 6px rgba(255,190,60,.8)}}
 @media (max-width:600px){.kc{padding:10px 12px;gap:10px}.kc .kcE{font-size:34px}.kc b{font-size:17px}.kc small{font-size:11px}.kc .kcGo{padding:6px 10px;font-size:12px}}
-</style></head><body>
+/*MOB2*/
+html,body{height:100%;height:100dvh}
+#touch{--bs:clamp(46px,min(14vw,11dvh),70px);--g:clamp(5px,1.6vmin,10px);bottom:calc(clamp(8px,2dvh,18px) + env(safe-area-inset-bottom));padding:0 calc(clamp(8px,2.5vw,20px) + env(safe-area-inset-right)) 0 calc(clamp(8px,2.5vw,20px) + env(safe-area-inset-left))}
+#touch .pad{grid-template-columns:repeat(3,var(--bs))!important;grid-template-rows:repeat(2,var(--bs))!important;gap:var(--g)}
+#touch .act{grid-template-columns:repeat(2,calc(var(--bs)*1.08))!important;gap:var(--g)}
+#touch b,#touch .act b{width:auto;height:var(--bs)!important;min-width:44px;min-height:44px;background:rgba(22,26,44,.78)!important;color:#fff!important;border:2px solid rgba(255,255,255,.9)!important;box-shadow:0 3px 10px rgba(0,0,0,.35);font-size:clamp(16px,calc(var(--bs)*.38),26px)!important;touch-action:none;user-select:none;-webkit-user-select:none}
+#touch .act b{height:calc(var(--bs)*1.08)!important}
+#touch .act b[data-k=KeyF]{background:rgba(226,48,80,.88)!important}
+#touch .act b[data-k=KeyG]{background:rgba(40,110,220,.88)!important}
+#touch .act b[data-k=KeyH]{background:rgba(214,150,20,.9)!important}
+#touch .act b[data-k=KeyY]{background:rgba(130,60,200,.9)!important}
+#touch b.dn{filter:brightness(1.35);transform:scale(.94)}
+#touch .mid{pointer-events:auto;align-self:flex-end;display:flex}
+#touch .mid b{width:calc(var(--bs)*.85);height:calc(var(--bs)*.85)!important;font-size:clamp(14px,calc(var(--bs)*.3),20px)!important}
+body.gp #touch .mid b{background:rgba(226,48,80,.9)!important}
+#gpov{display:none;position:fixed;inset:0;z-index:5;background:rgba(0,0,0,.35);color:#fff;font:800 clamp(22px,6vmin,40px) system-ui;align-items:center;justify-content:center;pointer-events:none}
+body.gp #gpov{display:flex}
+#rot{display:none;position:fixed;left:50%;transform:translateX(-50%);top:calc(clamp(132px,21dvh,175px) + env(safe-area-inset-top));z-index:7;background:rgba(22,26,44,.8);color:#fff;font:700 13px system-ui;padding:6px 12px;border-radius:14px;pointer-events:auto;white-space:nowrap}
+@media (orientation:portrait) and (max-width:600px){body.touch.fight:not(.rotok) #rot{display:block}}
+#hud{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+body.touch #ui button,body.touch #modes button,body.touch #mute{min-height:44px;min-width:44px}
+body.touch.fight #hud{top:calc(56px + env(safe-area-inset-top))!important}
+body.touch #ui{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;top:calc(6px + env(safe-area-inset-top));left:calc(6px + env(safe-area-inset-left));max-width:calc(100vw - 12px - env(safe-area-inset-left) - env(safe-area-inset-right))}
+body.touch #ui::-webkit-scrollbar{display:none}
+body.touch #ui button{flex:0 0 auto}
+body.touch #lb{top:calc(58px + env(safe-area-inset-top))!important}
+#touch b.off{opacity:.55}
+/*ENDMOB2*/</style></head><body>
 <div id="ui"><button id="restart">🔄 Restart</button><button class="cm on" data-m="follow">Follow leader</button><button class="cm" data-m="side">Side</button><button class="cm" data-m="top">Top</button><button class="cm" data-m="lineup">Line-up</button><button class="cm" data-m="free">Free</button></div>
 <div id="modes"><button class="mb on" data-mode="race">🏁<span class="t"> Race</span></button><button class="mb" data-mode="rumble">👑<span class="t"> Royal Rumble</span></button><button class="mb" data-mode="select">🥊<span class="t"> Street Fighter</span></button><button id="mute">🔊</button></div>
 <div id="menu"><h1>Mascot Arena</h1><p>Pick a mode · switch any time from the top-right</p><a class="kc" href="kart/"><span class="kcE">🏎️</span><span class="kcT"><b>NEW · Mascot Kart</b><small>3D kart racing across Singapore, Vietnam &amp; Shanghai · Solo vs CPU or online with friends</small></span><span class="kcGo">PLAY ▶</span></a><a class="kc" href="v2/" style="background:linear-gradient(120deg,#1f7a4a,#8a9a3e 50%,#f39a2e);box-shadow:0 6px 0 #14583a"><span class="kcE">✨</span><span class="kcT"><b>NEW · Mascot Arena v2</b><small>7 new mascots: Move Well, DateCFO, Young Compass, Sugar Guard, two.op, DBS Micro-Invest &amp; PeakWork</small></span><span class="kcGo">PLAY ▶</span></a><button class="big" data-go="race">🏁 Race</button><button class="big" data-go="rumble">👑 Royal Rumble</button><button class="big" data-go="select">🥊 Street Fighter</button><p style="margin-top:20px;font-size:13px">🔊 Sound starts after your first click</p></div>
@@ -60,7 +87,7 @@ body.touch.fight #touch{display:flex}body.touch #ctrls{display:none!important}
 <p style="color:#777;font-size:13px">P1: A/D move · W jump · S block · F punch · G kick · H special &nbsp;|&nbsp; P2: arrows · J punch · K kick · L special</p></div>
 <div id="flash"></div><div id="hud" style="display:none"><div class="bars"><div class="bar"><div id="p1h" style="width:100%"></div></div><div id="tm">60</div><div class="bar" style="display:flex;justify-content:flex-end"><div id="p2h" style="width:100%"></div></div></div><div class="mbars"><div class="mbar"><div id="p1m"></div></div><div class="mgap"></div><div class="mbar p2"><div id="p2m"></div></div></div><div class="names"><span><span id="p1n"></span> <span id="p1w"></span></span><span><span id="p2w"></span> <span id="p2n"></span></span></div><div id="ctrls"></div></div>
 <div id="feed" style="display:none"></div><div id="rbar" style="display:none"><button class="rc on" data-c="wide">Wide orbit</button><button class="rc" data-c="ring">Ringside</button><button class="rc" data-c="top">Top</button><button class="rc" data-c="free">Free</button></div><div id="banner" style="display:none"></div>
-<div id="touch"><div class="pad"><span></span><b data-k="KeyW">▲</b><span></span><b data-k="KeyA">◀</b><b data-k="KeyS">🛡</b><b data-k="KeyD">▶</b></div><div class="act"><b data-k="KeyF">P</b><b data-k="KeyG">K</b><b data-k="KeyH" class="off">★</b><b data-k="KeyY" class="off">💥</b></div></div><div id="lb"></div><div id="ov"></div><div id="hint">Drag to orbit · scroll to zoom · right-drag to pan</div>
+<div id="gpov">⏸ Paused</div><div id="rot">🔄 Rotate for a bigger arena · tap to hide</div><div id="touch"><div class="pad"><span></span><b data-k="KeyW">▲</b><span></span><b data-k="KeyA">◀</b><b data-k="KeyS">🛡</b><b data-k="KeyD">▶</b></div><div class="mid"><b id="gpb" aria-label="Pause">⏸</b></div><div class="act"><b data-k="KeyF">P</b><b data-k="KeyG">K</b><b data-k="KeyH" class="off">★</b><b data-k="KeyY" class="off">💥</b></div></div><div id="lb"></div><div id="ov"></div><div id="hint">Drag to orbit · scroll to zoom · right-drag to pan</div>
 <script>
 console.warn('Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation'),
 /**
@@ -1666,7 +1693,7 @@ function setMode(m){camMode=m;document.querySelectorAll('.cm').forEach(b=>b.clas
 document.querySelectorAll('.cm').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
 ctl.addEventListener('start',()=>{if(camMode!='free')setMode('free')});
 let last=performance.now();cam.position.set(10,5,-14);
-let SIM=false;function loop(now){requestAnimationFrame(loop);const dt=Math.max(0,Math.min(.05,(now-last)/1000))*FAST;last=now;step(Q.has('freeze')?0:dt);}
+let SIM=false;function loop(now){requestAnimationFrame(loop);const dt=Math.max(0,Math.min(.05,(now-last)/1000))*FAST;last=now;step(Q.has('freeze')||window.GP?0:dt);}
 function step(dt){scene.traverse(o=>{if(o.isSprite&&o.userData.lbl!==undefined||o.isSprite&&o.material&&o.material.map&&o.material.map.image&&o.material.map.image.width===640)o.visible=MODE!=='fight';});if(MODE!=='race'){modeStep(dt);return;}
  if(!PAUSE)el+=dt;
  if(state=='countdown'){const cdn=Math.max(1,3-Math.floor(el));if(cdn!==lastCd){lastCd=cdn;SFX.beep();}lb.innerHTML='<div class="cd">'+cdn+'</div>';if(el>3){state='run';el=0;SFX.horn();crowd(.12);}}
@@ -2058,6 +2085,8 @@ reset();
 {const m=Q.get('mode');if(m==='rumble')switchMode('rumble');else if(m==='select'||m==='fight'){switchMode('select');if(m==='fight'){if(SEL.p1===null)SEL.p1=6;if(SEL.p2===null)SEL.p2=4;fightStart();}}else if(m==='race')switchMode('race');else if(!Q.has('sim')&&!Q.has('pause'))show('menu',true);}
 if(Q.has('audiotest')){audioInit();Object.keys(SFX).forEach(k=>SFX[k]());crowd(.2);musicStart();['party','fight','calm'].forEach(t=>musicSet(t));console.log('MUSIC '+(MUS&&MUS.s&&MUS.s.name)+' tracks='+Object.keys(TRK));console.log('AUDIOTEST OK state='+(AC&&AC.state)+' sfx='+Object.keys(SFX).length);}
 {const n=+Q.get('sim')||0;SIM=true;for(let i=0;i<n*20;i++){step(.05);if(Q.has('stopOnStumble')&&MODE==='race'&&state=='run'&&racers.some(q=>q.tumble>.7&&q.tumble<1.0))break;if(Q.has('stopDance')&&DANCE&&DANCE.t>1.3)break;if(Q.has('stopOnKO')&&FT&&FT.state==='ko'&&FT.t>.6)break;if(Q.has('stopMid')&&RB&&RB.next>=5&&RB.F.some(f=>f.out))break;}SIM=false;}
+
+{const pb=document.getElementById('gpb');if(pb){const t=e=>{e.preventDefault();e.stopPropagation();window.GP=!window.GP;document.body.classList.toggle('gp',!!window.GP);pb.textContent=window.GP?'▶':'⏸';};pb.addEventListener('pointerdown',t);}const ro=document.getElementById('rot');if(ro)ro.addEventListener('pointerdown',()=>document.body.classList.add('rotok'));}
 requestAnimationFrame(loop);
 })();
 </script></body></html>
